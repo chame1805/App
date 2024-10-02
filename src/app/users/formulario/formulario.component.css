@@ -1,0 +1,46 @@
+#formulario {
+    height: 580px;
+    width: 45%;
+    background-color: rgba(135, 130, 130, 0.397);
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    margin: 0 auto;
+    margin-top: 180px;
+}
+
+#formulario input {
+    height: 30px;
+    width: 400px;
+}
+
+#formulario label {
+    display: flex;
+    margin-top: 30px;
+    font-size: 25px;
+}
+
+
+#buton {
+    display: flex;
+    justify-content: center;  
+    width: 100%;              
+    margin-top: 20px;         
+}
+
+#guar, #can {
+    height: 40px;
+    width: 150px;             
+    font-size: 18px;         
+    margin: 0 10px;          
+    color: white;
+}
+
+#guar {
+    background-color: rgb(28, 28, 227);
+}
+
+#can {
+    background-color: red;
+}
