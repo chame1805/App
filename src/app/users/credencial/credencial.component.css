@@ -1,0 +1,88 @@
+/* Estilos generales para el contenedor principal */
+.contenedor-principal {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1000px;
+  margin: 80px auto;
+  height: 350px; 
+}
+
+#color{
+  background-color: rgb(9, 56, 45);
+  height: 550px;
+  
+}
+
+/* Estilos de la credencial */
+.credencial-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  padding: 15px;
+  width: 35%;
+  height: 100%;
+  background-color: white;  
+}
+
+.imagen-container {
+  margin-bottom: 15px;
+}
+
+.imagen-container img {
+  max-width: 90px;
+  border-radius: 50%;
+}
+
+.datos-container {
+  text-align: center;
+  font-size: 18px;  
+  line-height: 1.5;  
+}
+
+/* Estilos del formulario */
+.formulario-container {
+  border: 1px solid #ccc;
+  padding: 25px;
+  width: 55%;  
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+  background-color: #e0e0e0;
+}
+
+.formulario-container label {
+  margin-bottom: 15px;  
+  font-size: 18px;  
+}
+
+.formulario-container input,
+.formulario-container select { /* Aplica estilos tanto a input como a select */
+  margin-bottom: 15px;  
+  font-size: 18px;  /* Aumenta el tamaño de la fuente */
+  padding: 10px;  /* Ajusta el padding para ambos */
+  border: 1px solid #ccc; /* Bordes para que coincidan */
+  border-radius: 4px; /* Borde redondeado */
+}
+
+.formulario-container select {
+  height: 46px; /* Asegúrate de que el select tenga la misma altura que un input */
+  appearance: none; /* Quita la apariencia por defecto */
+  background-color: white; /* Asegura un fondo blanco */
+  cursor: pointer; /* Cambia el cursor a un puntero al pasar el mouse */
+}
+
+/* Aumenta el tamaño de las letras de las opciones en el select */
+.formulario-container select option {
+  font-size: 18px; /* Tamaño de fuente para opciones */
+}
+
+
+button{
+  height: 35px;
+  background-color: rgb(69, 69, 251);
+  color: white;
+  
+}

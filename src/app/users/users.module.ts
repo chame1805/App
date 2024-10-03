@@ -10,13 +10,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
     FormularioComponent,
     RaizComponent,
     VistaComponent,
-    CredencialComponent
+    CredencialComponent,
+  
   ],
   imports: [
     CommonModule,

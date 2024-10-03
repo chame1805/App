@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';  // <- Aquí está la importación de BehaviorSubject
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private formdataSource = new BehaviorSubject<any>(null);
-  formdata$ = this.formdataSource.asObservable(); // Observable para suscribirse
+  private formDataSubject = new BehaviorSubject<any>(null);
+  formdata$ = this.formDataSubject.asObservable();
 
   updateData(data: any) {
-    this.formdataSource.next(data); // Actualiza los datos y notifica a los suscriptores
+    this.formDataSubject.next(data); // Actualiza los datos en la suscripción
   }
-
-  constructor() {}
 }

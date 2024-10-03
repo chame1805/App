@@ -5,7 +5,7 @@ import { UserService } from '../service-data/user.service';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
-  styleUrls: ['./formulario.component.css'] // Corregido: debe ser styleUrls
+  styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent {
   formData: FormGroup;
@@ -15,18 +15,18 @@ export class FormularioComponent {
     this.formData = this.fb.group({
       name: ['', Validators.required],
       telefono: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]], // Validación de email
+      email: ['', [Validators.required, Validators.email]],
       direccion: ['', Validators.required],
-      id: [{ value: '', disabled: true }, Validators.required]
+      id: ['']
     });
   }
 
   onSubmit() {
     if (this.formData.valid) {
-      this.formData.patchValue({ id: this.currentId }); // Asigna currentId al campo id
-      this.userService.updateData(this.formData.value); // Envía los datos al servicio
-      this.currentId++; // Incrementa el ID
-      this.formData.reset(); // Resetea el formulario si es necesario
+      this.formData.patchValue({ id: this.currentId }); // Asigna el currentId al campo ID
+      this.userService.updateData(this.formData.getRawValue()); // Envía los datos al servicio
+      this.currentId++; // Incrementa el ID para el próximo envío
+      this.formData.reset(); // Resetea el formulario
     }
   }
 }
