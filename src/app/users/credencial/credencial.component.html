@@ -1,6 +1,4 @@
-
 <div id="color">
-
   <div class="contenedor-principal">
     <!-- Credencial -->
     <div id="credencial" class="credencial-container">
@@ -40,8 +38,8 @@
       
       <label for="interes">Interés Mensual (10%)</label>
       <input type="text" id="interes" [value]="interes | currency" disabled>
-      <button>Guardar</button>
       
+      <button (click)="onGuardar()">Guardar</button> <!-- Agregar el evento para guardar -->
     </div>
   </div>
 </div>

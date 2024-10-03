@@ -1,0 +1,21 @@
+#pag{
+    height: 200px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid rgb(12, 67, 40);
+    font-size: 40px;
+    margin-top: 10px;
+}
+
+
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 380px;
+    font-size: 50px;
+}

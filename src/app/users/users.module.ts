@@ -7,6 +7,7 @@ import { RaizComponent } from './raiz/raiz.component';
 import { VistaComponent } from './vista/vista.component';
 import { CredencialComponent } from './credencial/credencial.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { CalendarioComponent } from './calendario/calendario.component';
 
 
 
@@ -18,6 +19,7 @@ import { BrowserModule } from '@angular/platform-browser';
     RaizComponent,
     VistaComponent,
     CredencialComponent,
+    CalendarioComponent,
   
   ],
   imports: [

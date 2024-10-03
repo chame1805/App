@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service-data/user.service';
+import { DataSharingService } from '../services/data-sharing.service';
 
 @Component({
   selector: 'app-credencial',
@@ -19,9 +20,8 @@ export class CredencialComponent implements OnInit {
   monto: number = 0; // Monto ingresado
   plazo: number = 0; // Plazo seleccionado
   interes: number = 0; // Interés calculado
-  pagoMensual: number = 0; // Pago mensual calculado
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private dataSharingService: DataSharingService) {}
 
   ngOnInit() {
     // Suscripción para recibir los datos del formulario
@@ -35,7 +35,6 @@ export class CredencialComponent implements OnInit {
   calcularInteres() {
     // Calcular el interés mensual (10% del monto ingresado)
     this.interes = this.monto * 0.10; // 10% de interés
-    this.pagoMensual = (this.monto + this.interes) / this.plazo; // Pago mensual total
   }
 
   onMontoChange(event: any) {
@@ -46,5 +45,11 @@ export class CredencialComponent implements OnInit {
   onPlazoChange(event: any) {
     this.plazo = parseInt(event.target.value) || 0; // Actualiza el plazo
     this.calcularInteres(); // Recalcula el interés cuando cambia el plazo
+  }
+
+  onGuardar() {
+    // Almacena el monto, interés y plazo en el servicio compartido
+    this.dataSharingService.updatePaymentData(this.monto, this.interes, this.plazo); // Envía también el plazo
+    alert('Datos guardados con éxito'); // Mensaje de éxito (opcional)
   }
 }
