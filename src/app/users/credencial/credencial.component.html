@@ -1,6 +1,7 @@
 <div id="color">
   <div class="contenedor-principal">
-    <!-- Credencial -->
+    
+    <!-- Sección de la credencial -->
     <div id="credencial" class="credencial-container">
       <div class="imagen-container">
         <img src="im.jpg" alt="Foto de usuario">
@@ -11,10 +12,12 @@
         <p>{{ receivedData.email || '' }}</p>
         <p><strong>Dirección:</strong> {{ receivedData.direccion || '' }}</p>
         <p><strong>ID:</strong> {{ receivedData.id || '' }}</p>
+        <button id="editar" (click)="abrirModal()">Editar</button>
+        <button id="borrar" (click)="borrarDatos()">Borrar datos</button>
       </div>
     </div>
     
-    <!-- Formulario -->
+    <!-- Sección del formulario para calcular monto e interés -->
     <div id="formulario" class="formulario-container">
       <label for="monto">Monto</label>
       <input type="number" id="monto" (input)="onMontoChange($event)">
@@ -39,7 +42,28 @@
       <label for="interes">Interés Mensual (10%)</label>
       <input type="text" id="interes" [value]="interes | currency" disabled>
       
-      <button (click)="onGuardar()">Guardar</button> <!-- Agregar el evento para guardar -->
+      <button (click)="onGuardar()">Guardar</button> <!-- Botón para guardar los datos -->
+    </div>
+  </div>
+  
+  <!-- Modal de edición -->
+  <div *ngIf="modalVisible" class="modal-edicion">
+    <div class="modal-content">
+      <h3>Editar Credencial</h3>
+      <label for="editName">Nombre:</label>
+      <input type="text" id="editName" [(ngModel)]="receivedData.name">
+
+      <label for="editTelefono">Teléfono:</label>
+      <input type="text" id="editTelefono" [(ngModel)]="receivedData.telefono">
+
+      <label for="editEmail">Email:</label>
+      <input type="email" id="editEmail" [(ngModel)]="receivedData.email">
+
+      <label for="editDireccion">Dirección:</label>
+      <input type="text" id="editDireccion" [(ngModel)]="receivedData.direccion">
+
+      <button (click)="guardarCambios()">Guardar Cambios</button>
+      <button (click)="cerrarModal()">Cancelar</button>
     </div>
   </div>
 </div>

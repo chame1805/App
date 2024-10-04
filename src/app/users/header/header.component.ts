@@ -4,7 +4,7 @@ import { title } from 'node:process';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'] // Corregido "styleUrls"
+  styleUrls: ['./header.component.css'] 
 })
 export class HeaderComponent {
 

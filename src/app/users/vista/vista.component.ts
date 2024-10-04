@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-vista',
   templateUrl: './vista.component.html',
-  styleUrls: ['./vista.component.css']  // Nota: es 'styleUrls', no 'styleUrl'
+  styleUrls: ['./vista.component.css']  
 })
 export class VistaComponent {
 
@@ -11,7 +11,7 @@ export class VistaComponent {
 
   imagen = [
     {
-      image: 'cas.jpg'  // Asegúrate de usar la ruta correcta
+      image: 'cas.jpg'  
     }
   ];
 

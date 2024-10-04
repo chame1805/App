@@ -23,10 +23,16 @@ export class FormularioComponent {
 
   onSubmit() {
     if (this.formData.valid) {
-      this.formData.patchValue({ id: this.currentId }); // Asigna el currentId al campo ID
-      this.userService.updateData(this.formData.getRawValue()); // Envía los datos al servicio
-      this.currentId++; // Incrementa el ID para el próximo envío
-      this.formData.reset(); // Resetea el formulario
+      this.formData.patchValue({ id: this.currentId }); 
+      const formValues = this.formData.getRawValue();
+      
+      console.log('Datos enviados:', formValues); 
+  
+      this.userService.updateData(formValues); 
+      this.currentId++; 
+      this.formData.reset(); 
     }
   }
+  
+  
 }

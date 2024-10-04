@@ -1,8 +1,40 @@
-<div>
-    <h2>Detalles del Pago</h2>
-    <p><strong>Monto:</strong> {{ total | currency }}</p>
-    
-    <p><strong>Plazo (meses):</strong> {{ plazo }}</p>
-    <p><strong>Total a Pagar por Mes:</strong> {{ pago | currency }}</p> <!-- Mostrar el pago calculado -->
-  </div>
+<div class="contenedor-principal">
   
+  <div class="resumen-container">
+    <h2>Resumen de Pago</h2>
+    <p><strong>Monto Total:</strong> {{ total | currency }}</p>
+    <p><strong>Plazo (meses):</strong> {{ plazo }}</p>
+    <p><strong>Pago Mensual:</strong> {{ pago | currency }}</p>
+    <button (click)="borrarDatos()">Eliminar</button>
+  </div>
+
+  
+  <div class="tabla-pagos-container" *ngIf="!deudaCancelada">
+    <h3>Pagos Mensuales</h3>
+    <table class="tabla-pagos">
+      <thead>
+        <tr>
+          <th>Mes</th>
+          <th>Monto a Pagar</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pagoMensual of pagosMensuales; let i = index">
+          <td>Mes {{ i + 1 }} - {{ pagoMensual.fecha | date: 'MMMM yyyy' }}</td>
+          <td>{{ pagoMensual.monto | currency }}</td>
+          <td><button (click)="pagarMes(i)" [disabled]="pagoMensual.pagado" class="btn-pagar">
+              {{ pagoMensual.pagado ? 'Pagado' : 'Pagar' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  
+  <div *ngIf="deudaCancelada" class="mensaje-cancelacion">
+    <h3>¡Deuda Cancelada!</h3>
+    <p>Todos los pagos han sido completados. No tienes deuda pendiente.</p>
+  </div>
+</div>

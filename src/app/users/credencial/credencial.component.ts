@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service-data/user.service';
 import { DataSharingService } from '../services/data-sharing.service';
+import { log } from 'console';
 
 @Component({
   selector: 'app-credencial',
@@ -17,39 +18,74 @@ export class CredencialComponent implements OnInit {
     id: ''
   };
 
-  monto: number = 0; // Monto ingresado
-  plazo: number = 0; // Plazo seleccionado
-  interes: number = 0; // Interés calculado
+  monto: number = 0; 
+  plazo: number = 0; 
+  interes: number = 0;
+  modalVisible : boolean = false
 
   constructor(private userService: UserService, private dataSharingService: DataSharingService) {}
 
   ngOnInit() {
-    // Suscripción para recibir los datos del formulario
+   
     this.userService.formdata$.subscribe(data => {
       if (data) {
-        this.receivedData = data; // Actualiza los datos cuando se envía el formulario
+        this.receivedData = data; 
       }
+
+      
     });
+    
+    console.log(this.receivedData);
+    
+  }
+  abrirModal(){
+    this.modalVisible = true
+  }
+
+  cerrarModal(){
+    this.modalVisible = false
   }
 
   calcularInteres() {
-    // Calcular el interés mensual (10% del monto ingresado)
-    this.interes = this.monto * 0.10; // 10% de interés
+ 
+    this.interes = this.monto * 0.10; 
   }
 
   onMontoChange(event: any) {
-    this.monto = parseFloat(event.target.value) || 0; // Actualiza el monto
-    this.calcularInteres(); // Recalcula el interés cuando cambia el monto
+    this.monto = parseFloat(event.target.value) || 0; 
+    this.calcularInteres(); 
   }
 
   onPlazoChange(event: any) {
-    this.plazo = parseInt(event.target.value) || 0; // Actualiza el plazo
-    this.calcularInteres(); // Recalcula el interés cuando cambia el plazo
+    this.plazo = parseInt(event.target.value) || 0; 
+    this.calcularInteres(); 
   }
 
   onGuardar() {
-    // Almacena el monto, interés y plazo en el servicio compartido
-    this.dataSharingService.updatePaymentData(this.monto, this.interes, this.plazo); // Envía también el plazo
-    alert('Datos guardados con éxito'); // Mensaje de éxito (opcional)
+    
+    this.dataSharingService.updatePaymentData(this.monto, this.interes, this.plazo); 
+    alert('Datos guardados con éxito');
+    
   }
-}
+
+  borrarDatos(){
+    this.receivedData = {
+      name: "" ,
+      telefono: "",
+      email : "",
+      direccion : "",
+      id : ""
+    }
+  }
+
+
+  guardarCambios() {
+    this.userService.updateData(this.receivedData); // Actualiza los datos en el servicio
+    console.log('Datos personales actualizados:', this.receivedData);
+    alert('Datos personales actualizados con éxito');
+    this.cerrarModal();
+  }
+  }
+
+
+

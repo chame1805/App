@@ -1,21 +1,74 @@
-#pag{
-    height: 200px;
+.contenedor-principal {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f4f4f9;
+  }
+  
+  .resumen-container {
+    width: 40%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tabla-pagos-container {
+    width: 50%;
+  }
+  
+  .tabla-pagos {
     width: 100%;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border: 2px solid rgb(12, 67, 40);
-    font-size: 40px;
-    margin-top: 10px;
-}
-
-
-h1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 380px;
-    font-size: 50px;
-}
+    border-collapse: collapse;
+    background-color: #fff;
+  }
+  
+  .tabla-pagos th, .tabla-pagos td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .tabla-pagos th {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  .tabla-pagos td {
+    font-size: 16px;
+  }
+  
+  .btn-pagar {
+    padding: 8px 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-pagar:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .mensaje-cancelacion {
+    text-align: center;
+    background-color: #28a745;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  .mensaje-cancelacion h3 {
+    font-size: 24px;
+  }
+  
+  .mensaje-cancelacion p {
+    font-size: 18px;
+  }
+  

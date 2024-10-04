@@ -1,35 +1,32 @@
+// src/app/general/general.module.ts
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormularioComponent } from './formulario/formulario.component';
 import { RaizComponent } from './raiz/raiz.component';
 import { VistaComponent } from './vista/vista.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormularioComponent } from './formulario/formulario.component';
 import { CredencialComponent } from './credencial/credencial.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { CalendarioComponent } from './calendario/calendario.component';
-
-
-
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FormularioComponent,
     RaizComponent,
-    VistaComponent,
+    FormularioComponent,
     CredencialComponent,
     CalendarioComponent,
-  
+    VistaComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
-    BrowserModule
+    ReactiveFormsModule
   ],
-  exports:[
-  RaizComponent
+  exports: [
+    HeaderComponent,
+    RaizComponent,
+    VistaComponent // Asegúrate de exportar los componentes que usas en AppComponent
   ]
 })
-export class UsersModule { }
+export class UserModule { }
